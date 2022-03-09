@@ -1,16 +1,17 @@
-name: Greetings
-
-on: [pull_request, issues]
-
+name: GitHub Actions Demo
+on: [push,pull_request, issues]
 jobs:
-  greeting:
+  Explore-GitHub-Actions:
     runs-on: ubuntu-latest
-    permissions:
-      issues: write
-      pull-requests: write
     steps:
-    - uses: actions/first-interaction@v1
-      with:
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        issue-message: 'Message that will be displayed on users first issue'
-        pr-message: 'Message that will be displayed on users first pull request'
+      - run: echo "🎉 The job was automatically triggered by push event."
+      - run: echo "🐧 This job is now running on a ubuntu-latest server hosted by GitHub!"
+      - run: echo "🔎 The name of your branch is master and your repository is Git_Repo."
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - run: echo "💡 The Git_Repo repository has been cloned to the runner."
+      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
+      - name: List files in the repository
+        run: |
+          ls ${{ github.workspace }}  # <-- this is an example of default Git Hub Environmental Variables
+      - run: echo "🍏 This job's status is ${{ job.status }}."
