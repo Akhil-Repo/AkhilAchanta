@@ -6,7 +6,7 @@ jobs:
   greeting:
     runs-on: ubuntu-latest
     steps:
-    - uses: Akhil-Repo/action-create-branch@v2.0.1
+    - uses: MyRepo/action-create-branch@v2.0.1
       env:
        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
